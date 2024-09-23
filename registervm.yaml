@@ -11,8 +11,8 @@
     - name: Register the system with Red Hat subscription-manager
       ansible.builtin.command: >
         subscription-manager register
-        --username={{ ansible_user }}
-        --password={{ ansible_password }}
+        --username={{ rhel_username }}
+        --password={{ rhel_password }}
         --force
 
     - name: Verify the system is registered
