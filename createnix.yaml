@@ -98,7 +98,7 @@
                               - "{{ ssh_public_key }}"
                             passwd: "{{ vm_password }}"
                             lock_passwd: false
-                        ssh_pwauth: True    
+                            ssh_pwauth: True    
                         chpasswd:
                           list: |
                             cloud-user:{{ vm_password }}
