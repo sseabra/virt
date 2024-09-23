@@ -98,6 +98,8 @@
                               - "{{ ssh_public_key }}"
                             passwd: "{{ vm_password }}"
                             lock_passwd: false
+                            keyboard:
+                              layout: pt-pt
                         ssh_pwauth: True    
                         chpasswd:
                           list: |
