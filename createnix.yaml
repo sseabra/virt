@@ -5,7 +5,7 @@
 
     - name: Create the 'linuxvm' namespace
       kubernetes.core.k8s:
-        name: linuxvm
+        name: {{ project }}
         kind: Namespace
         api_version: v1
         state: present
@@ -16,7 +16,7 @@
           kind: VirtualMachine
           metadata:
             name: "{{ item.role }}-{{ item.env }}-{{ '%02d' | format(item.id) }}"
-            namespace: linuxvm
+            namespace: {{ project }}
             labels:
               app: "{{ item.role }}-{{ item.env }}-{{ '%02d' | format(item.id) }}"
               kubevirt.io/dynamic-credentials-support: 'true'
@@ -98,6 +98,7 @@
                               - "{{ ssh_public_key }}"
                             passwd: "{{ vm_password }}"
                             lock_passwd: false
+                        ssh_pwauth: True    
                         chpasswd:
                           list: |
                             cloud-user:{{ vm_password }}
