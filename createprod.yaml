@@ -16,7 +16,7 @@
           kind: VirtualMachine
           metadata:
             name: "{{ item.role }}-{{ item.env }}-{{ '%02d' | format(item.id) }}"
-            namespace: linuxvm
+            namespace: "{{ project }}"
             labels:
               app: "{{ item.role }}-{{ item.env }}-{{ '%02d' | format(item.id) }}"
               kubevirt.io/dynamic-credentials-support: 'true'
