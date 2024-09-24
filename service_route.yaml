@@ -1,16 +1,21 @@
 ---
-- name: Create a Service in OpenShift
+- name: Create a Service in OpenShift 4
   hosts: localhost
   tasks:
-    - name: Create a service in OpenShift
+    - name: Create a service in OpenShift using the k8s module
       k8s:
         state: present
         definition: "{{ lookup('file', 'service.yaml') }}"
-        namespace: arrowvirt
+        namespace: arrowvirt  # Specify your OpenShift namespace
       when: lookup('file', 'service.yaml') is not failed
 
- #  - name: Create the route construct
- #      kubernetes.core.k8s:
- #        src: route.yaml
- #        namespace: arrowvirt
- #        state: present
+    - name: Verify the service creation
+      k8s_info:
+        kind: Service
+        namespace: arrowvirt
+        name: web
+      register: service_info
+
+    - name: Display service information
+      debug:
+        msg: "{{ service_info.resources }}"
