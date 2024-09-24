@@ -18,3 +18,9 @@
     - name: Display service information
       debug:
         msg: "{{ service_info.resources }}"
+
+    - name: Create a route in OpenShift using the k8s module
+      k8s:
+        state: present
+        definition: "{{ lookup('file', 'route.yaml') }}"
+        namespace: arrowvirt  # Specify your OpenShift namespace   
