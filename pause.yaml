@@ -5,10 +5,7 @@
   tasks:
 
 # Do not assume the inventory_hostname is resolvable and delay 10 seconds at start
-    - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
+    - name: Sleep for 300 seconds and continue with play
       ansible.builtin.wait_for:
-        port: 22
-        host: arrowvirt-web-dev-04
-        search_regex: OpenSSH
-        delay: 30
-      connection: local
+        timeout: 30
+      delegate_to: localhost
