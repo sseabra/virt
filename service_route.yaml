@@ -1,16 +1,16 @@
 ---
-- name: Deploy VMs
+- name: Expose LB Web Serive
   hosts: localhost
   tasks:
-  
-  - name: service create
-    kubernetes.core.k8s:
-      src: service.yaml
-      namespace: arrowvirt
-      state: present
 
-- name: route create
-    kubernetes.core.k8s:
-      src: route.yaml
-      namespace: arrowvirt
-      state: present
+    - name: Create the service construct
+        kubernetes.core.k8s:
+          src: service.yaml
+          namespace: arrowvirt
+          state: present
+
+   - name: Create the route construct
+       kubernetes.core.k8s:
+         src: route.yaml
+         namespace: arrowvirt
+         state: present
