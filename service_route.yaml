@@ -1,16 +1,13 @@
 ---
-- name: Expose LB Web Serive
+- name: Create a Service in OpenShift
   hosts: localhost
-
-  collections:
-  - kubernetes.core
-  
   tasks:
-  - name: Create the service construct
-    kubernetes.core.k8s:
-      src: service.yaml
-      namespace: arrowvirt
-      state: present
+    - name: Create a service in OpenShift
+      k8s:
+        state: present
+        definition: "{{ lookup('file', 'service.yaml') }}"
+        namespace: my-namespace
+      when: lookup('file', 'service.yaml') is not failed
 
  #  - name: Create the route construct
  #      kubernetes.core.k8s:
