@@ -4,10 +4,10 @@
   tasks:
 
   - name: Create the service construct
-     kubernetes.core.k8s:
-       src: service.yaml
-       namespace: arrowvirt
-       state: present
+    kubernetes.core.k8s:
+      src: service.yaml
+      namespace: arrowvirt
+      state: present
 
  #  - name: Create the route construct
  #      kubernetes.core.k8s:
