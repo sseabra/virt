@@ -1,5 +1,4 @@
 - name: Pause for 1 minute to build inventory
-  hosts: all
   tasks:
     - name: Pause
       ansible.builtin.pause:
