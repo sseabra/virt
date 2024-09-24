@@ -1,4 +1,9 @@
-- name: service create
+---
+- name: Deploy VMs
+  hosts: localhost
+  tasks:
+  
+  - name: service create
     kubernetes.core.k8s:
       src: service.yaml
       namespace: arrowvirt
