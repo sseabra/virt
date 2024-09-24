@@ -1,8 +1,11 @@
 ---
 - name: Expose LB Web Serive
   hosts: localhost
-  tasks:
 
+  collections:
+  - kubernetes.core
+  
+  tasks:
   - name: Create the service construct
     kubernetes.core.k8s:
       src: service.yaml
