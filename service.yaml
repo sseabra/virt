@@ -6,7 +6,7 @@ metadata:
   namespace: arrowvirt
 spec:
   selector:
-    kubevirt.io/domain=web-dev-04
+    kubevirt.io/domain: web-dev-04
   ports:
   - protocol: TCP
     port: 80
