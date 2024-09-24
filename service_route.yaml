@@ -7,7 +7,6 @@
         state: present
         definition: "{{ lookup('file', 'service.yaml') }}"
         namespace: arrowvirt  # Specify your OpenShift namespace
-      when: lookup('file', 'service.yaml') is not failed
 
     - name: Verify the service creation
       k8s_info:
