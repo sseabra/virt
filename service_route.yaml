@@ -6,7 +6,7 @@
       k8s:
         state: present
         definition: "{{ lookup('file', 'service.yaml') }}"
-        namespace: my-namespace
+        namespace: arrowvirt
       when: lookup('file', 'service.yaml') is not failed
 
  #  - name: Create the route construct
