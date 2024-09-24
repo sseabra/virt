@@ -3,6 +3,10 @@
   hosts: all
   become: yes
   tasks:
+    - name: Pause for 1 minute to build inventory
+      ansible.builtin.pause:
+      minutes: 1
+    
     - name: Ensure subscription-manager is installed
       ansible.builtin.dnf:
         name: subscription-manager
