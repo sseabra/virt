@@ -3,7 +3,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: web04
-  namespace: arrowvirt
+  namespace: vvalley-virt
   labels: {}
 spec:
   to:
